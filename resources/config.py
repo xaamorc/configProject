@@ -1,7 +1,7 @@
 import os
 import json
 
-class Config():
+class ConfigSettings():
     def __init__(self) -> None:
         working_dir = os.getcwd()
         config_file = 'config.json'
@@ -20,6 +20,18 @@ class Config():
             self.MODEL = config['MODEL']
             self.BRAND = config['BRAND']
             self.YEAR = config['YEAR']
+
+class StartSettings():
+    def __init__(self) -> None:
+        working_dir = os.getcwd()
+        config_file = 'start.json'
+        config_file_path = os.path.join(working_dir, config_file)
+
+        with open(config_file_path, "r") as f:
+            config = json.load(f)
+            self.START = config['START']
+            self.STOP = config['STOP']
+            self.PAUSE = config['PAUSE']
 
         
 
